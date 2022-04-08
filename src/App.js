@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
+import Wrapper from "./Components/Helpers/Wrapper";
 import AddUser from "./Components/Users/AddUser";
 import UsersList from "./Components/Users/UsersList";
 
@@ -14,10 +15,12 @@ function App() {
     });
   };
   return (
-    <div>
+    // check on Fragments, instead of creating a Wrapper, we can return <></> empty which will not create div in DOM
+    // or <React.Fragment></React.Fragment>, or additionally import Fragment and then just use it as below
+    <Fragment>
       <AddUser onAddUser={addUserHandler} />
       <UsersList users={usersList} />
-    </div>
+    </Fragment>
   );
 }
 
